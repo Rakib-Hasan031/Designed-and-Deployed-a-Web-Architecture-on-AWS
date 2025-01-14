@@ -1,0 +1,71 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Security Groups and NACLs configuration'
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC ID
+
+Resources:
+  # Load Balancer Security Group
+  LoadBalancerSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for Application Load Balancer
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+
+  # Application Security Group
+  ApplicationSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for application servers
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          SourceSecurityGroupId: !Ref LoadBalancerSG
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          SourceSecurityGroupId: !Ref BastionSG
+
+  # Bastion Host Security Group
+  BastionSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for bastion host
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+Outputs:
+  LoadBalancerSG:
+    Description: Load Balancer Security Group ID
+    Value: !Ref LoadBalancerSG
+    Export:
+      Name: !Sub "${AWS::StackName}-LoadBalancerSG"
+
+  ApplicationSG:
+    Description: Application Security Group ID
+    Value: !Ref ApplicationSG
+    Export:
+      Name: !Sub "${AWS::StackName}-ApplicationSG"
+
+  BastionSG:
+    Description: Bastion Security Group ID
+    Value: !Ref BastionSG
+    Export:
+      Name: !Sub "${AWS::StackName}-BastionSG"
