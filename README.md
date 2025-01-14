@@ -40,7 +40,7 @@ This project implements a robust web hosting solution using various AWS services
 ## 📸 Implementation Screenshots
 
 ### VPC and Subnet Configuration ![Architecture Diagram]()
-![VPC Configuration](documentation/EC2 instance.png) (documentation/security groups.png) (documentation/target groups.png)
+![VPC Configuration](documentation/EC2 instance.png)
 
 ### Auto Scaling Group
 ![Auto Scaling](documentation/target groups.png)
