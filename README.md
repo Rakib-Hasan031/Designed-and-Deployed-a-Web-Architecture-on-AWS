@@ -39,15 +39,22 @@ This project implements a robust web hosting solution using various AWS services
 
 ## 📸 Implementation Screenshots
 
-### VPC and Subnet Configuration
-![VPC Configuration](https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80)
+### VPC and Subnet Configuration ![Architecture Diagram]()
+![VPC Configuration](documentation/EC2 instance.png) (documentation/security groups.png) (documentation/target groups.png)
 
 ### Auto Scaling Group
-![Auto Scaling](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
+![Auto Scaling](documentation/target groups.png)
 
 ### Load Balancer Setup
-![Load Balancer](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80)
+![Load Balancer](documentation/Load balancer.png)
 
+### Run python web server on 3-AZ on 3 private subnet
+![Prod Server1](documentation/prodserver1.png)
+![Prod Server2](documentation/prodserver2.png)
+![Prod Server3](documentation/prodserver3.png)
+
+### Log and Monitoring
+![Observability](documentation/Observility.png)
 ## 🚀 Deployment Guide
 
 ### Prerequisites
