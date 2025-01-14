@@ -5,7 +5,7 @@ Designed and Deployed a Scalable, Secure, and Highly Available Web Architecture 
 
 A production-grade AWS architecture implementing a highly available, secure, and scalable web hosting solution across multiple Availability Zones.
 
-![AWS Architecture Diagram](https://lucid.app/publicSegments/view/0c3c3fe7-3899-4705-9e47-2a0e4c8f84fb/image.png)
+![AWS Architecture Diagram](documentation/AWS-Architecture.webp)
 
 ## 🏗️ Architecture Overview
 
