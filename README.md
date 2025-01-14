@@ -37,7 +37,7 @@ This project implements a robust web hosting solution using various AWS services
 - Health checks ensure traffic routes to healthy instances
 - Even traffic distribution across backend servers
 
-## 📸 Implementation Screenshots
+## 📸 Implementation of host an Application on a private subnet and accessible from public internet
 
 ### VPC and Subnet Configuration
 ![VPC Configuration](documentation/EC2-instance.png)
